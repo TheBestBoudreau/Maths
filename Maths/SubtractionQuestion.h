@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.h
+//  SubtractionQuestion.h
 //  Maths
 //
 //  Created by Tyler Boudreau on 2018-04-11.
@@ -8,6 +8,6 @@
 
 #import "Questions.h"
 
-@interface AdditionQuestion : Questions
+@interface SubtractionQuestion : Questions
 
 @end

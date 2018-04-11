@@ -2,7 +2,7 @@
 //  AdditionQuestion.m
 //  Maths
 //
-//  Created by Tyler Boudreau on 2018-04-10.
+//  Created by Tyler Boudreau on 2018-04-11.
 //  Copyright © 2018 Tyler Boudreau. All rights reserved.
 //
 
@@ -10,15 +10,9 @@
 
 @implementation AdditionQuestion
 
-
-
--(instancetype)init{
-    
-    if (self = [super init]){
-        int num1 = (arc4random() % 91)+10;
-        int num2 = (arc4random() % 91)+10;
-        _question = [NSString stringWithFormat:@"%i + %i?",num1, num2];
-        _answer = num1 + num2;
+- (instancetype)init {
+    if (self = [super init]) {
+        [self generateQuestion];
     }
     return self;
 }

@@ -1,13 +1,13 @@
 //
-//  AdditionQuestion.h
+//  Question.m
 //  Maths
 //
 //  Created by Tyler Boudreau on 2018-04-11.
 //  Copyright © 2018 Tyler Boudreau. All rights reserved.
 //
 
-#import "Questions.h"
+#import "Question.h"
 
-@interface AdditionQuestion : Questions
+@implementation Question
 
 @end

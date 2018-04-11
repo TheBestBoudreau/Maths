@@ -7,31 +7,35 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Questions.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
+#import "QuestionFactory.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
-        
+        NSLog(@"MATHS!\n\n\n");
+        QuestionManager *questions =[[QuestionManager alloc]init];
         BOOL gameOn = YES;
         NSString *quit=@"quit";
         ScoreKeeper *scoreKeeping =[[ScoreKeeper alloc]init];
-        
-        
-        
+        InputHandler *newString = [[InputHandler alloc]init];
+        QuestionFactory *questionFactory=[[QuestionFactory alloc]init];
         while(gameOn)
+ 
         {
-            InputHandler *newString = [[InputHandler alloc]init];
-            AdditionQuestion *adding = [[AdditionQuestion alloc]init];
-            
+            [questionFactory generateRandomQuestion];
+            Questions *adding = [questionFactory generateRandomQuestion];
+            NSLog(@"%@",[questions timeOutput]);
+            [questions.questions addObject:adding];
+
 
   
             [adding question];
             [adding answer];
         
             NSLog(@"%@",[adding question]);
-            
+
             NSString *takingString=[newString parsedString];
             
             if ([takingString isEqualToString:quit]) {
@@ -39,8 +43,6 @@ int main(int argc, const char * argv[]) {
                 break;
             }
             NSInteger finalString =[takingString intValue];
-            
-            
             if (finalString == [adding answer])
             {
                 NSLog(@"Right!");
@@ -51,12 +53,13 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Wrong!");
                 scoreKeeping.wrong++;
             }
-            
+
 
             }
-        float finalScore=[scoreKeeping score];
-        NSLog(@"Your score is %f",finalScore);
-        
+        int finalScore=[scoreKeeping score];
+        NSLog(@"Your score is %i",finalScore);
+
     }
+
     return 0;
 }
